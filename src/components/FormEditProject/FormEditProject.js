@@ -48,7 +48,7 @@ function FormEditProject(props) {
     };
     // const editorRef = useRef(null);
     const handleEditorChange = (content, editor) => {
-        setFieldValue('description', values)
+        setFieldValue('description', content)
     }
 
     return (
@@ -66,16 +66,29 @@ function FormEditProject(props) {
                         <input value={values.projectName} className="form-control" name="projectName" onChange={handleChange} />
                     </div>
                 </div>
-                <div className="col-4">
+                {/* <div className="col-4">
                     <div className="form-group">
                         <p className="font-weight-bold">Project Category</p>
                         <select className="form-control" name='categoryId' value={values.categoryId}>
                             {arrProjectCatogery?.map((item, index) => {
                                 return <option value={item.id} key={index}>
                                     {item.projectCategoryName}</option>
-
                             })}
                         </select>
+                    </div>
+                </div> */}
+                <div className="col-4">
+                    <div className="form-group">
+                        <p className="font-weight-bold">Project Category</p>
+                        <select className="form-control" name="categoryId" value={values.categoryId}>
+                            {arrProjectCatogery?.map((item, index) => {
+                                return <option key={index} value={item.id}>
+                                    {item.projectCategoryName}
+                                </option>
+                            })}
+                        </select>
+
+
                     </div>
                 </div>
                 <div className="col-12 ">
@@ -116,7 +129,8 @@ const EditProjectForm = withFormik({
             id: projectEdit.id,
             projectName: projectEdit.projectName,
             description: projectEdit.description,
-            categoryId: projectEdit.categoryId,
+            categoryId: projectEdit.categoryId
+            // categoryId: props.arrProjectCategory[0]?.id,
         }
     },
     validationSchema: Yup.object().shape({
