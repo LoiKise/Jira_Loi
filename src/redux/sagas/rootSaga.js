@@ -14,5 +14,6 @@ export function* rootSaga() {
         ProjectSaga.theoDoicreateProjectSaga(),
         ProjectSaga.theodoiGetListProjectSaga(),
         ProjectSaga.theodoiUpdateProjectSaga(),
+        ProjectSaga.theoDoiDeleteProject(),
     ])
 }

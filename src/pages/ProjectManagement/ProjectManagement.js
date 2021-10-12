@@ -4,6 +4,10 @@ import ReactHtmlParser from 'react-html-parser'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import FormEditProject from '../../components/FormEditProject/FormEditProject';
+import { Popconfirm, message } from 'antd';
+
+
+
 
 export default function ProjectManagement(props) {
     const projectList = useSelector(state => state.ProjectJiraBugsReducer.projectList) // lấy dữ liệu từ reducer thông qua hàm useSelector (sau đó chuyền xuống datasource= tên đã khai báo (projectList))
@@ -142,9 +146,14 @@ export default function ProjectManagement(props) {
                     }}>
                         <EditOutlined />
                     </button>
-                    <button className="btn ">
-                        <DeleteOutlined />
-                    </button>
+                    <Popconfirm placement="right" title="bây giờ m muốn sao " onConfirm={() => {
+                        dispatch({ type: 'DELETE_PROJECT_SAGA', idProject: record.id })
+                    }} okText="Yes" cancelText="No">
+                        <button className="btn btn-danger" >
+                            <DeleteOutlined />
+                        </button>
+                    </Popconfirm>
+
                 </Space>
             ),
         },

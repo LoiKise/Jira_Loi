@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
 import LoadingComponents from "./components/GlobalSetting/LoadingComponents";
+
 import DrawerJiraBug from "./HOC/JiraBugHOC/DrawerJiraBug";
 import CreateProject from "./pages/CreateProject/CreateProject";
 
@@ -24,7 +25,7 @@ function App() {
     <Router history={history}>
       <LoadingComponents />
       <DrawerJiraBug />
-
+    
 
       <Switch>
         <UserTemplate exact path="/login" Component={Login} />

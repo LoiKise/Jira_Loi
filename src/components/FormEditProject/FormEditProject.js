@@ -87,8 +87,6 @@ function FormEditProject(props) {
                                 </option>
                             })}
                         </select>
-
-
                     </div>
                 </div>
                 <div className="col-12 ">
